@@ -1,0 +1,13 @@
+get fetch -v     - показывает ветки в которы есть изменения
+get switch main    - переход на ветку local main
+get pull     - обновить local main до global main. Могут появится conflicts
+get switch - <local branch> - переход на эту ветку
+get merge main     - local branch сливается с local main. Hа этой стадии часто происходят conflicts, решаются вручную.
+
+
+Чтобы смоделировать работу нескольких программеров - lesson 79 с 2-ой мин.
+Создается новая папка для модельного проекта 
+Открываю еще один Bash, перехожу в эту папку делаю git clone (инфа из GitHub, выбираю проект)
+Перехожу в папку с git проектом
+В Eclipse File/Open Project from file System выбираю папку куда клонировался проект.
+далее смотри lesson 79
