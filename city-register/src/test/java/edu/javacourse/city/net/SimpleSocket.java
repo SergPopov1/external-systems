@@ -12,13 +12,13 @@ public class SimpleSocket {
 	@Test
 	public void simpleSocket() throws IOException {
 
-		Socket socket = new Socket("java-course.ru", 80);
+		Socket socket = new Socket("localhost", 8081);
 
 		InputStream is = socket.getInputStream(); // входной поток
 		OutputStream os = socket.getOutputStream(); // выходной поток
 
 		// получаю данные из файла sitemap.xml
-		String command = "GET /sitemap.xml HTTP/1.1\r\nHost:java-course.ru\r\n\r\n";
+		String command = "GET / HTTP/1.1\r\nHost:java-course.ru\r\n\r\n";
 		os.write(command.getBytes()); // в os записываю данные в виде байтов
 		os.flush(); // заставляю немедленно отправить данные вне зависимости от размера
 
