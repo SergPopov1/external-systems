@@ -12,7 +12,7 @@ public class SimpleSocket {
 	@Test
 	public void simpleSocket() throws IOException {
 
-		Socket socket = new Socket("localhost", 8081);
+		Socket socket = new Socket("localhost", 8080);
 
 		InputStream is = socket.getInputStream(); // входной поток
 		OutputStream os = socket.getOutputStream(); // выходной поток
