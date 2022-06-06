@@ -17,8 +17,8 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		
-		
+		<jersey.version>2.35</jersey.version>			
+		<!-- начиная с version 3.0 -  вместо jersey переименовали в jakarta  -->
 	</properties>
 	
 	<dependencies>	
@@ -29,6 +29,46 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
 		    <version>42.3.3</version>
 		</dependency>
 		
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.8</version>
+		</dependency>
+		
+		<!-- jdk14 загружает logs в уже работающую среду logging здесь Tomcat -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-jdk14</artifactId>
+		    <version>1.7.8</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-moxy -->
+		<dependency>
+		    <groupId>org.glassfish.jersey.media</groupId>
+		    <artifactId>jersey-media-moxy</artifactId>
+		    <version>${jersey.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+
+
+						
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -56,6 +96,7 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
                 <configuration>
                 <!-- не использую файл WEB-INF\web.xml -->
         			<failOnMissingWebXml>false</failOnMissingWebXml>
+        			<outputDirectory>/Program Files/Java/apach-tomcat-9.0.63/webapps</outputDirectory>
     			</configuration>
             </plugin>
         </plugins>

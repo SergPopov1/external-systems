@@ -26,6 +26,7 @@ public class PersonCheckDaoTest {
 		pr.setApartment("121");
 
 		PersonCheckDao dao = new PersonCheckDao(); // запрос в базу ГРН и соединение с ней
+		dao.setConnectionBuilder(new DirectConnectionBuilder()); // dao получает объект который умеет соединяться с базой
 		PersonResponse ps = dao.checkPerson(pr); // ответ на запрос
 		Assert.assertTrue(ps.isRegistered()); // чел зарегистрирован постоянно
 		Assert.assertFalse(ps.isTemporal()); // чел зарегистрирован постоянно
@@ -41,10 +42,12 @@ public class PersonCheckDaoTest {
 		pr.setPatronymic("петровна");
 		pr.setDateOfBirth(LocalDate.of(1997, 8, 21));
 		pr.setStreetCode(1);
-		pr.setBuilding("271");
-		pr.setApartment("4");
+		pr.setBuilding("10");
+		pr.setExtension("2");
+		pr.setApartment("121");
 
 		PersonCheckDao dao = new PersonCheckDao();
+		dao.setConnectionBuilder(new DirectConnectionBuilder());
 		PersonResponse ps = dao.checkPerson(pr);
 		Assert.assertTrue(ps.isRegistered());
 		Assert.assertFalse(ps.isTemporal());

@@ -21,4 +21,11 @@ public class PersonResponse {
 		this.temporal = temporal;
 	}
 
+	@Override
+	public String toString() {
+		return "PersonResponse [registered=" + registered 
+				+ ", temporal=" + temporal + "]";
+	}
+	
+
 }
